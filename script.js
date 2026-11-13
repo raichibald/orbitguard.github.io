@@ -1,5 +1,13 @@
 (() => {
     "use strict";
+    // Support button: the address is only assembled on click, so it isn't sitting in the page source.
+    document.querySelectorAll("[data-mail]").forEach((a) => {
+        a.addEventListener("click", (e) => {
+            e.preventDefault();
+            location.href = `mailto:${["saripo.raitis", "gmail.com"].join("@")}?subject=Orbit%20Guard%20support`;
+        });
+    });
+
     // Gallery arrows (the row also scrolls and snaps by touch or trackpad without this).
     const track = document.querySelector(".gallery-track");
     if (!track) return;
