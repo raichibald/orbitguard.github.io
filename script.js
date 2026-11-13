@@ -1,5 +1,9 @@
 (() => {
     "use strict";
+    // Privacy and terms pages: start the table of contents collapsed on phones.
+    const toc = document.querySelector("details.toc");
+    if (toc && matchMedia("(max-width: 719px)").matches) toc.open = false;
+
     // Support button: the address is only assembled on click, so it isn't sitting in the page source.
     document.querySelectorAll("[data-mail]").forEach((a) => {
         a.addEventListener("click", (e) => {
